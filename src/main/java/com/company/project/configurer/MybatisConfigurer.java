@@ -4,23 +4,20 @@ import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Properties;
 
 import static com.company.project.core.ProjectConstant.*;
 
 /**
- * Mybatis & Mapper & PageHelper 配置
+ * @Description: Mybatis & Mapper & PageHelper 配置
+ * @Author:
  */
 @Configuration
 public class MybatisConfigurer {
@@ -34,9 +31,12 @@ public class MybatisConfigurer {
         //配置分页插件，详情请查阅官方文档
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
-        properties.setProperty("pageSizeZero", "true");//分页尺寸为0时查询所有纪录不再执行分页
-        properties.setProperty("reasonable", "true");//页码<=0 查询第一页，页码>=总页数查询最后一页
-        properties.setProperty("supportMethodsArguments", "true");//支持通过 Mapper 接口参数来传递分页参数
+        //分页尺寸为0时查询所有纪录不再执行分页
+        properties.setProperty("pageSizeZero", "true");
+        //页码<=0 查询第一页，页码>=总页数查询最后一页
+        properties.setProperty("reasonable", "true");
+        //支持通过 Mapper 接口参数来传递分页参数
+        properties.setProperty("supportMethodsArguments", "true");
         pageHelper.setProperties(properties);
 
         //添加插件

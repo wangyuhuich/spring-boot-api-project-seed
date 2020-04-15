@@ -3,7 +3,8 @@ package com.company.project.core;
 import com.alibaba.fastjson.JSON;
 
 /**
- * 统一API响应结果封装
+ * @Description: 统一API响应结果封装
+ * @Author:
  */
 public class Result<T> {
     private int code;

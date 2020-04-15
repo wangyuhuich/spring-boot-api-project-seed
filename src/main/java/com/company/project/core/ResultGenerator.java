@@ -1,7 +1,8 @@
 package com.company.project.core;
 
 /**
- * 响应结果生成工具
+ * @Description: 响应结果生成工具
+ * @Author:
  */
 public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
